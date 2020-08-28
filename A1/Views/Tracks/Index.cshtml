@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Assignment1.Models.TrackBaseViewModel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2><i><b>Track list (@ViewContext.RouteData.GetRequiredString("action"))</b></i></h2>
+
+<p>
+    @Html.ActionLink("All Tracks", "Index") |
+    @Html.ActionLink("Jazz Tracks", "Jazz") |
+    @Html.ActionLink("Roger Clover curated tracks", "Roger") |
+    @Html.ActionLink("50 Longest Tracks", "LongestFifty") 
+
+    @*@Html.ActionLink("Jazz Tracks", "Index", new { filter = "Jazz" }) |
+        @Html.ActionLink("Roger Clover curated tracks", "Index", new { filter = "Roger" }) |
+        @Html.ActionLink("50 Longest Tracks", "Index", new { filter = "LongestFifty" })*@
+
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AlbumId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MediaTypeId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GenreId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Composer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Milliseconds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bytes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UnitPrice)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AlbumId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MediaTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GenreId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Composer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Milliseconds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Bytes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+
+        </tr>
+    }
+
+</table>
